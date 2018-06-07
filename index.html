@@ -10,19 +10,34 @@
     <body>
         <div id="sliding-menu">
             <div id="tabs-container">
-                <div id="tab-item">
-                    <i class="fas fa-bars tab-icon"></i>
-                </div>
-                <div id="tab-item">
-                        <i class="fas fa-bars tab-icon"></i>
+                <template>
+                    <div class="tab-item">
+                        <i class="fas tab-icon"></i>
                     </div>
-                    <div id="tab-item">
-                            <i class="fas fa-bars tab-icon"></i>
-                        </div>
-                        <div id="tab-item">
-                                <i class="fas fa-bars tab-icon"></i>
-                            </div>
+                    
+                </template>
+                <div class="tab-item">
+                    <i class="fas fa-angle-left tab-icon "></i>
+                </div>
             </div>
+
+            <ul id="parent-items-container">
+                <template>
+                    <li class="parent-list-item">
+                        <div class="parent-list-item-icon">
+                                <i class="far fa-hospital"></i>
+                        </div>
+                        <div class="parent-list-item-text ">
+                            <p>
+                                TEMPLATE
+                            </p>
+                        </div>
+                        <ul class="parent-list-child-list">
+                            
+                        </ul>
+                    </li>
+                </template>
+            </ul>
         </div>
     </body>
 </html>
