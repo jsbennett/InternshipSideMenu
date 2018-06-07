@@ -87,7 +87,7 @@ function createData(menu)
     var itemIcons = [
         [
             'fas fa-hospital',
-            '',
+            'fas fa-screwdriver',
             'fas fa-chart-line',
             'fas fa-bars',
             'fas fa-box-open',
