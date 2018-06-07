@@ -31,6 +31,8 @@ const tabTemplate = {
     activeParentItem: null
 };
 
+var menu;
+
 function createData(menu)
 {
     menu = Object.assign(
@@ -234,11 +236,11 @@ function initialiseTabListeners(menu) {
 }
 
 function initialiseCaratButtonListener() {
-	    $("#caratButton").click((e) => {menuToggle(menu)});
+    $("#caratButton").click((e) => {menuToggle(menu)});
 }
 
 $(document).ready(function(){
-    var menu;
+    
     menu = createData(menu);
     populateTabs(menu);
     populateParentItems(menu);
