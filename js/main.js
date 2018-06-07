@@ -44,7 +44,7 @@ function createData(menu)
     );
 
     var tabNames = ['Products', 'Admin', 'Information'];
-    var tabIcons = ['', '', ''];
+    var tabIcons = ['fas fa-bars', 'fas fa-cogs', 'fas fa-info-circle'];
  
     for (var i = 0; i < 3; i++) {
         console.log(tabNames[i]);
