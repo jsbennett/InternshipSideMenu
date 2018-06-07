@@ -124,7 +124,7 @@ function createData(menu)
             
         }
 
-        menu.tabsList[i].listOfItems = parentItems;
+        menu.tabsList[i].listOfParentItems = parentItems;
     }
 
     return menu;
