@@ -77,3 +77,32 @@ ul {
 .selected-parent-item{
     background-color:#2d2d2d;
 }
+
+.parent-list-child-list{
+    background-color: #4b4b4b;
+    list-style-type: none;
+}
+
+.child-list-item{
+    margin-left:10%;
+    display:inline;
+}
+
+.child-list-item-icon{
+    width:10%;
+    font-size:25px;
+    color:white;
+    margin-left:10px;
+    display:inline-block;
+    position: relative;
+    top:5px;
+}
+
+.child-list-item-text{
+    color:white;
+    display:inline-block;
+    font-family:Arial;
+    font-size:10px;
+    position: relative;
+    width:85%;
+}
