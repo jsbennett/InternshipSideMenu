@@ -121,7 +121,24 @@ function createData(menu)
 
             parentItems.push(parentItem);
 
-            
+            if (itemNames[i][j] === "Issues"){
+                                
+                var issueChildren = [
+                    'Issue Manager',
+                    'All Issues',
+                    'My Issues',
+                    'Issues Workflow Setup'
+                ];
+                var issueItems = [];
+                for (var k = 0; k < issueChildren.length; k++)
+                {
+                    var childItem = Object.create(childItemsTemplate);
+                    childItem.name = issueChildren[k];
+                    issueItems.push(childItem);
+                }
+
+                parentItem.childItems = issueItems;
+            }
         }
 
         menu.tabsList[i].listOfItems = parentItems;
