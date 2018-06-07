@@ -17,7 +17,7 @@ body {
     justify-content: space-between;
 }
 
-#tab-item{
+.tab-item{
     color:white;
     height:50px;
     display:inline-block;    
