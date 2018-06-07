@@ -97,7 +97,7 @@ function createData(menu)
             'fas fa-user',
             'fas fa-exchange-alt',
             'fas fa-expand-arrows-alt',
-            'fab fa-pied-pipe',
+            'fab fa-pied-piper',
             'far fa-clock',
         ],
         [
