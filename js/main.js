@@ -206,7 +206,7 @@ function selectTab(tabName){
 }
 
 function initialiseTabListeners(){
-    let tabItems = document.querySelector('#tab-item');
+    let tabItems = document.querySelector('.tab-item');
 
 	for (var i=0; i < tabItems.length; i++) {
 		tabItem[i].addEventListener("click", selectTab("#tab_"+i));
