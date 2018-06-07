@@ -1,22 +1,22 @@
-const childItems = {
+const childItemsTemplate = {
     name: null
 };
 
-const parentItems = {
+const parentItemsTemplate = {
     name: null,
     icon: null,
     childItems: []
 
 };
 
-const user = {
+const userTemplate = {
 	admin: null,
 	chargemaster: null,
 	issues: null,
 	supply: null
 };
 
-const menu = {
+const menuTemplate = {
 	expanded: true,
 	overlay: false,
 	tabsList: [],
@@ -24,12 +24,44 @@ const menu = {
 };
 
 
-const tab = {
+const tabTemplate = {
     name: null, 
     icon: null,
     listOfItems: [],
     activeParentItem: null
 };
+
+var menu;
+
+function createData()
+{
+    menu = Object.assign(
+        {
+            expanded: true,
+            overlay: false,
+            tabsList: [],
+            currentTab: null
+        },
+        menuTemplate
+    );
+
+    var tabNames = ['Products', 'Admin', 'Information'];
+    var tabIcons = ['', '', ''];
+ 
+    for (var i = 0; i < 3; i++) {
+        console.log(tabNames[i]);
+        
+        var tab = Object.create(tabTemplate);
+        tab.name = tabNames[i];
+        tab.icon = tabIcons[i];
+
+        if (i === 0) {
+            menu.currentTab = tab;
+        }
+        
+        menu.tabsList.push(tab);
+    }
+}
 
 function populateTabs(menu)
 {
@@ -55,3 +87,9 @@ function showParent(tab)
 {
     
 }
+
+$(document).ready(function(){
+
+    createData();
+
+});
