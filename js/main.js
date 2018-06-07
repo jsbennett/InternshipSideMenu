@@ -159,7 +159,14 @@ function populateParentItems(tabs)
 
 function populateChildItems(parentItem)
 {
-
+	let template = document.querySelector('#child-items');
+	
+	var childList = parentItem.childItems;
+	for (var i=0; i < childList.length; i++) {
+		let clone  = document.importNode(template.content, true);
+		$(clone).find('#child-name').text(parentItem.childItems[i].name);
+		let childElem = $('#child-list').append(clone);
+	}
 }
 
 function showTab(tab)
