@@ -22,4 +22,12 @@ const menu = {
 	tabsList: null,
 	currentTab: null
 };
+
+
+const tab = {
+    name: null, 
+    icon: null,
+    listOfItems: [items],
+    activeParentItem: null
+};
  
