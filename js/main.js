@@ -151,19 +151,17 @@ function populateTabs(menu)
 {
     let template = document.querySelector('#tab-item-template'); 
     
-    var tabs = menu.tabsList; 
+    var tabs = menu.tabsList.reverse(); 
     var i; 
     for(i = 0; i < tabs.length; i++)
     {
-        
         let clone = document.importNode(template.content, true);
+        $(clone).find("#tab_template").attr("id", "tab_" + i);
         $(clone).find('#fas tab-icon').text(tabs[i].icon);
-        $(clone).find('#tab-item-icon').addClass(tabs.reverse()[i].icon);
+        $(clone).find('#tab-item-icon').addClass(tabs[i].icon);
         $('#tabs-container').prepend(clone);
 
     }
-
-
 }
 
 function populateParentItems(menu)
