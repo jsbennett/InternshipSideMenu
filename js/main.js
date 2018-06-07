@@ -200,14 +200,18 @@ function showParent(tab)
     
 }
 
-function selectTab(tabName){
-    console.log(tabName)
+function selectTab(menu, tabIndex){
+	$('.parent-list-item').remove();
+	$('.selected-tab-item').removeClass("selected-tab-item");
+	menu.currentTab = tabIndex;
+	populateParentItems(menu);
+	$('#tab_' + tabIndex).addClass("selected-tab-item");
 }
 
 function initialiseTabListeners(menu) {
 	for (var i = 0; i < menu.tabsList.length; i++) {
         let j = i;
-	    $("#tab_" + j).click((e) => {selectTab(j)});
+	    $("#tab_" + j).click((e) => {selectTab(menu, j)});
 	}
 }
 
