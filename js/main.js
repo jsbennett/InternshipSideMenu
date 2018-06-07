@@ -211,12 +211,17 @@ function initialiseTabListeners(menu) {
 	}
 }
 
+function initialiseCaratButtonListener() {
+	    $("#caratButton").click((e) => {menuToggle(menu)});
+}
+
 $(document).ready(function(){
     var menu;
     menu = createData(menu);
     populateTabs(menu);
     populateParentItems(menu);
     initialiseTabListeners(menu);
+    initialiseCaratButtonListener();
     console.log(menu);
 
 });
