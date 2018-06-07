@@ -225,7 +225,8 @@ function menuToggle(menu){
         );
 
         $('.tab-item:not(#caratButton)').css('display', 'none');
-        $('.parent-list-item-text ').css('display', 'none');
+        $('.parent-list-item-text ').css('opacity', '0');
+        $('.carrot-icon').css('transform', 'rotate(180deg)');
 
         menu.expanded = false;
 
@@ -239,7 +240,8 @@ function menuToggle(menu){
             'swing',
             () => {
                 $('.tab-item:not(#caratButton)').css('display', 'block');
-                $('.parent-list-item-text ').css('display', 'inline-block');
+                $('.parent-list-item-text ').css('opacity', '1');
+                $('.carrot-icon').css('transform', 'rotate(0deg)');
             }
         );
 
