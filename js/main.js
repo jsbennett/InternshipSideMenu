@@ -31,6 +31,8 @@ const tabTemplate = {
     activeParentItem: null
 };
 
+var menu;
+
 function createData(menu)
 {
     menu = Object.assign(
@@ -178,16 +180,20 @@ function populateParentItems(menu)
     }
 }
 
-function populateChildItems(parentItem)
+function populateChildItems(menu)
 {
-	let template = document.querySelector('#child-items');
-	
-	var childList = parentItem.childItems;
-	for (var i=0; i < childList.length; i++) {
-		let clone  = document.importNode(template.content, true);
-		$(clone).find('#child-name').text(parentItem.childItems[i].name);
-		let childElem = $('#child-list').append(clone);
-	}
+    var childListLength = menu.parentItem.childItems.length; 
+      if(childListLength >0) 
+      {
+        let template = document.querySelector('#child-items');
+        var childList = menu.parentItem.childItems;
+        
+        for (var i=0; i < childList.length; i++) {
+            let clone  = document.importNode(template.content, true);
+            $(clone).find('#child-name').text(childList[i].name);
+            $('#child-list').append(clone);
+        }
+    }
 }
 
 function showTab(tab)
@@ -208,6 +214,28 @@ function selectTab(menu, tabIndex){
 	$('#tab_' + tabIndex).addClass("selected-tab-item");
 }
 
+function menuToggle(menu){
+    
+    if (menu.expanded && !menu.overlay) {
+
+        $('#sliding-menu').animate(
+            {
+                'margin-left': '-225px'
+            }
+        );
+
+    } else if (!menu.expanded && !menu.overlay) {
+
+        $('#sliding-menu').animate(
+            {
+                'margin-left': '0px'
+            }
+        );
+
+    }
+
+}
+
 function initialiseTabListeners(menu) {
 	for (var i = 0; i < menu.tabsList.length; i++) {
         let j = i;
@@ -215,12 +243,18 @@ function initialiseTabListeners(menu) {
 	}
 }
 
+function initialiseCaratButtonListener() {
+    $("#caratButton").click((e) => {menuToggle(menu)});
+}
+
 $(document).ready(function(){
-    var menu;
+    
     menu = createData(menu);
     populateTabs(menu);
     populateParentItems(menu);
+    populateChildItems(menu)
     initialiseTabListeners(menu);
+    initialiseCaratButtonListener();
     console.log(menu);
 
 });
