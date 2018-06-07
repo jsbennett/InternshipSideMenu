@@ -79,13 +79,14 @@ ul {
 }
 
 .parent-list-child-list{
-    background-color: #4b4b4b;
+    background-color:#2d2d2d;
     list-style-type: none;
 }
 
 .child-list-item{
     margin-left:10%;
     display:inline;
+    
 }
 
 .child-list-item-icon{

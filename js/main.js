@@ -171,6 +171,7 @@ function populateParentItems(tabs)
     let template = document.querySelector('#parent-list-item'); 
     
     var parents = tabs.listOfParentItems; 
+    console.log(tabs.listOfParentItems);
     var i; 
     for(i = 0; i < parents.length; i++)
     {
@@ -208,9 +209,11 @@ $(document).ready(function(){
     menu = createData(menu);
     console.log(menu);
     populateTabs(menu);
-    populateParentItems(menu);
 
-
+    for (var i = 0; i < menu.tabsList; i++)
+    {
+        populateParentItems(menu.tabsList[i]);
+    }
     console.log(menu);
 
 });
