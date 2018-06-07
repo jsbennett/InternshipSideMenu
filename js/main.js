@@ -121,10 +121,27 @@ function createData(menu)
 
             parentItems.push(parentItem);
 
-            
+            if (itemNames[i][j] === "Issues"){
+                                
+                var issueChildren = [
+                    'Issue Manager',
+                    'All Issues',
+                    'My Issues',
+                    'Issues Workflow Setup'
+                ];
+                var issueItems = [];
+                for (var k = 0; k < issueChildren.length; k++)
+                {
+                    var childItem = Object.create(childItemsTemplate);
+                    childItem.name = issueChildren[k];
+                    issueItems.push(childItem);
+                }
+
+                parentItem.childItems = issueItems;
+            }
         }
 
-        menu.tabsList[i].listOfItems = parentItems;
+        menu.tabsList[i].listOfParentItems = parentItems;
     }
 
     return menu;
@@ -153,6 +170,7 @@ function populateParentItems(tabs)
     let template = document.querySelector('#parent-list-item'); 
     
     var parents = tabs.listOfParentItems; 
+    console.log(tabs.listOfParentItems);
     var i; 
     for(i = 0; i < parents.length; i++)
     {
@@ -190,9 +208,11 @@ $(document).ready(function(){
     menu = createData(menu);
     console.log(menu);
     populateTabs(menu);
-    populateParentItems(menu);
 
-
+    for (var i = 0; i < menu.tabsList; i++)
+    {
+        populateParentItems(menu.tabsList[i]);
+    }
     console.log(menu);
 
 });
