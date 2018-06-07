@@ -27,18 +27,39 @@ const menu = {
 const tab = {
     name: null, 
     icon: null,
-    listOfItems: [],
+    listOfParentItems: [],
     activeParentItem: null
 };
 
 function populateTabs(menu)
 {
+    let template = document.querySelector('#tab-item'); 
+    
+    var tabs = menu.tabsList; 
+    var i; 
+    for(i = 0; i < tabs.length; i++)
+    {
+        let clone = document.importNode(template.content, true);
+        $(clone).find('#fas tab-icon').text(tabs[i].icon);
+        $('#tab-item').append(clone);
+    }
+
 
 }
 
 function populateParentItems(tabs)
 {
-
+    let template = document.querySelector('#parent-list-item'); 
+    
+    var parents = tabs.listOfParentItems; 
+    var i; 
+    for(i = 0; i < parents.length; i++)
+    {
+        let clone = document.importNode(template.content, true);
+        $(clone).find('#fas parent-list-item-icon').text(parents[i].name);
+        $(clone).find('#fas parent-list-item-icon').text(parents[i].icon);
+        $('#parent-list-item').append(clone);
+    }
 }
 
 function populateChildItems(parentItem)
