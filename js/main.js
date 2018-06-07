@@ -178,16 +178,20 @@ function populateParentItems(menu)
     }
 }
 
-function populateChildItems(parentItem)
+function populateChildItems(menu)
 {
-	let template = document.querySelector('#child-items');
-	
-	var childList = parentItem.childItems;
-	for (var i=0; i < childList.length; i++) {
-		let clone  = document.importNode(template.content, true);
-		$(clone).find('#child-name').text(parentItem.childItems[i].name);
-		let childElem = $('#child-list').append(clone);
-	}
+    var childListLength = menu.parentItem.childItems.length; 
+      if(childListLength >0) 
+      {
+        let template = document.querySelector('#child-items');
+        var childList = menu.parentItem.childItems;
+        
+        for (var i=0; i < childList.length; i++) {
+            let clone  = document.importNode(template.content, true);
+            $(clone).find('#child-name').text(childList[i].name);
+            $('#child-list').append(clone);
+        }
+    }
 }
 
 function showTab(tab)
@@ -216,6 +220,7 @@ $(document).ready(function(){
     menu = createData(menu);
     populateTabs(menu);
     populateParentItems(menu);
+    populateChildItems(menu)
     initialiseTabListeners(menu);
     console.log(menu);
 
