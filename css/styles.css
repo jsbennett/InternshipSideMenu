@@ -20,9 +20,14 @@ body {
 .tab-item{
     color:white;
     height:50px;
+    width:100%;
     display:inline-block;    
     text-align:center;
-    margin:auto;
+    margin:0;
+}
+
+.selected-tab-item {
+    background-color: #7c7c7c
 }
 
 .tab-icon{
