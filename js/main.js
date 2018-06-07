@@ -203,11 +203,24 @@ function showParent(tab)
     
 }
 
+function selectTab(tabName){
+    console.log(tabName)
+}
+
+function initialiseTabListeners(){
+    let tabItems = document.querySelector('#tab-item');
+
+	for (var i=0; i < tabItems.length; i++) {
+		tabItem[i].addEventListener("click", selectTab("#tab_"+i));
+	}
+}
+
 $(document).ready(function(){
     var menu;
     menu = createData(menu);
     populateTabs(menu);
     populateParentItems(menu);
+    initialiseTabListeners();
     console.log(menu);
 
 });
