@@ -168,7 +168,7 @@ function populateParentItems(menu)
 {
     let template = document.querySelector('#parent-list-item'); 
     
-    var parents = menu.currentTab.listOfParentItems.reverse(); 
+    var parents = menu.currentTab.listOfParentItems; 
     var i; 
     for(i = 0; i < parents.length; i++)
     {
