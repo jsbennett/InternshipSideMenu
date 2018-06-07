@@ -231,7 +231,7 @@ function menuToggle(menu){
 
         $('.tab-item:not(#caratButton)').css('display', 'none');
         $('.parent-list-item-text ').css('opacity', '0');
-        $('.carrot-icon').css('transform', 'rotate(180deg)');
+        $('.carrot-icon').addClass("Animate");
 
         menu.expanded = false;
 
@@ -246,11 +246,9 @@ function menuToggle(menu){
             () => {
                 $('.tab-item:not(#caratButton)').css('display', 'block');
                 $('.parent-list-item-text ').css('opacity', '1');
-                $('.carrot-icon').css('transform', 'rotate(0deg)');
             }
         );
-
-        
+        $('.carrot-icon').removeClass("Animate");
 
         menu.expanded = true;
 

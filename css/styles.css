@@ -113,3 +113,14 @@ ul {
 .content{
     float: left;
 }
+
+.carrot-icon {
+    transition: .4s ease;
+    transform: rotate(0deg);
+}
+
+.carrot-icon.Animate {
+    transition: .4s ease;
+    transform: rotate(-180deg);
+}
+
