@@ -159,7 +159,6 @@ function populateTabs(menu)
         let clone = document.importNode(template.content, true);
         $(clone).find('#fas tab-icon').text(tabs[i].icon);
         $(clone).find('#tab-item-icon').addClass(tabs.reverse()[i].icon);
-        console.log(clone);
         $('#tabs-container').prepend(clone);
 
     }
@@ -167,18 +166,17 @@ function populateTabs(menu)
 
 }
 
-function populateParentItems(tabs)
+function populateParentItems(menu)
 {
     let template = document.querySelector('#parent-list-item'); 
     
-    var parents = tabs.listOfParentItems; 
+    var parents = menu.currentTab.listOfParentItems.reverse(); 
     var i; 
     for(i = 0; i < parents.length; i++)
     {
         let clone = document.importNode(template.content, true);
-        $(clone).find('#fas parent-list-item-text').text(parents[i].name);
-        $(clone).find('#fas parent-list-item-icon').text(parents[i].icon);
-        console.log(clone);
+        $(clone).find('#item-icon').addClass(parents[i].icon);
+        $(clone).find('#text').text(parents[i].name);
         $('#parent-items-container').append(clone);
     }
 }
@@ -209,12 +207,7 @@ $(document).ready(function(){
     var menu;
     menu = createData(menu);
     populateTabs(menu);
-
-    for (var i = 0; i < menu.tabsList.length; i++)
-    {
-        console.log(menu.tabsList[i]);
-        populateParentItems(menu.tabsList[i]);
-    }
+    populateParentItems(menu);
     console.log(menu);
 
 });
