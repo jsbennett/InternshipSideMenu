@@ -157,9 +157,10 @@ function populateTabs(menu)
     {
         
         let clone = document.importNode(template.content, true);
-        $(clone).find('#fas tab-icon').text(tabs[i].icon);
+        $(clone).find('#tab-item-icon').addClass(tabs.reverse()[i].icon);
         console.log(clone);
         $('#tabs-container').prepend(clone);
+
     }
 
 
