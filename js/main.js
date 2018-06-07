@@ -44,7 +44,7 @@ function createData(menu)
     );
 
     var tabNames = ['Products', 'Admin', 'Information'];
-    var tabIcons = ['fas fa-bars', 'fas fa-cogs', 'fas fa-info-circle'];
+    var tabIcons = ['fa-bars', 'fa-cogs', 'fa-info-circle'];
  
     for (var i = 0; i < 3; i++) {
         console.log(tabNames[i]);
@@ -52,13 +52,11 @@ function createData(menu)
         var tab = Object.create(tabTemplate);
         tab.name = tabNames[i];
         tab.icon = tabIcons[i];
-
-        if (i === 0) {
-            menu.currentTab = tab;
-        }
         
         menu.tabsList.push(tab);
     }
+
+    menu.currentTab = 0;
 
     var itemNames = [
         [
@@ -151,9 +149,9 @@ function populateTabs(menu)
 {
     let template = document.querySelector('#tab-item-template'); 
     
-    var tabs = menu.tabsList.reverse(); 
+    var tabs = menu.tabsList; 
     var i; 
-    for(i = 0; i < tabs.length; i++)
+    for(i = tabs.length - 1; i >= 0; i--)
     {
         let clone = document.importNode(template.content, true);
         $(clone).find("#tab_template").attr("id", "tab_" + i);
@@ -162,13 +160,14 @@ function populateTabs(menu)
         $('#tabs-container').prepend(clone);
 
     }
+    $("#tab_" + menu.currentTab).addClass("selected-tab-item");
 }
 
 function populateParentItems(menu)
 {
     let template = document.querySelector('#parent-list-item'); 
     
-    var parents = menu.currentTab.listOfParentItems; 
+    var parents = menu.tabsList[menu.currentTab].listOfParentItems; 
     var i; 
     for(i = 0; i < parents.length; i++)
     {
@@ -205,11 +204,10 @@ function selectTab(tabName){
     console.log(tabName)
 }
 
-function initialiseTabListeners(){
-    let tabItems = document.querySelector('.tab-item');
-
-	for (var i=0; i < tabItems.length; i++) {
-		tabItem[i].addEventListener("click", selectTab("#tab_"+i));
+function initialiseTabListeners(menu) {
+	for (var i = 0; i < menu.tabsList.length; i++) {
+        let j = i;
+	    $("#tab_" + j).click((e) => {selectTab(j)});
 	}
 }
 
@@ -218,7 +216,7 @@ $(document).ready(function(){
     menu = createData(menu);
     populateTabs(menu);
     populateParentItems(menu);
-    initialiseTabListeners();
+    initialiseTabListeners(menu);
     console.log(menu);
 
 });
