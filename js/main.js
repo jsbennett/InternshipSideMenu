@@ -211,7 +211,12 @@ function selectTab(menu, tabIndex){
 	$('.selected-tab-item').removeClass("selected-tab-item");
 	menu.currentTab = tabIndex;
 	populateParentItems(menu);
-	$('#tab_' + tabIndex).addClass("selected-tab-item");
+    $('#tab_' + tabIndex).addClass("selected-tab-item");
+    
+    $('.parent-list-item').click(function() {
+        var name = $(this).find('#text').text();
+        $('h1').text(name);
+    });
 }
 
 function menuToggle(menu){
@@ -286,6 +291,8 @@ function initialiseCaratButtonListener() {
     $("#caratButton").click((e) => {menuToggle(menu)});
 }
 
+
+
 $(document).ready(function(){
     
     menu = createData(menu);
@@ -295,5 +302,10 @@ $(document).ready(function(){
     initialiseTabListeners(menu);
     initialiseCaratButtonListener();
     console.log(menu);
+
+    $('.parent-list-item').click(function() {
+        var name = $(this).find('#text').text();
+        $('h1').text(name);
+    });
 
 });
