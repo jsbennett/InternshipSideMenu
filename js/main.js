@@ -252,7 +252,7 @@ $(document).ready(function(){
     menu = createData(menu);
     populateTabs(menu);
     populateParentItems(menu);
-    populateChildItems(menu)
+    //populateChildItems(menu)
     initialiseTabListeners(menu);
     initialiseCaratButtonListener();
     console.log(menu);
