@@ -56,13 +56,14 @@ ul {
 }
 
 .parent-list-item-icon{
-    width:10%;
+    width: 75px;
     font-size:25px;
     color:white;
     margin-left:10px;
     display:inline-block;
     position: relative;
     top:5px;
+    text-align: center;
 }
 
 .parent-list-item-text{

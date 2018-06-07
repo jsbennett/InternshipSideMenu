@@ -212,18 +212,55 @@ function menuToggle(menu){
 
         $('#sliding-menu').animate(
             {
-                'margin-left': '-225px'
+                'width': '75px'
             }
         );
+
+        $('.tab-item:not(#caratButton)').css('display', 'none');
+        $('.parent-list-item-text ').css('display', 'none');
+
+        menu.expanded = false;
 
     } else if (!menu.expanded && !menu.overlay) {
 
         $('#sliding-menu').animate(
             {
-                'margin-left': '0px'
+                'width': '300px'
+            },
+            400,
+            'swing',
+            () => {
+                $('.tab-item:not(#caratButton)').css('display', 'block');
+                $('.parent-list-item-text ').css('display', 'inline-block');
             }
         );
 
+        
+
+        menu.expanded = true;
+
+    } else if (menu.expanded && menu.overlay) {
+
+        $('#sliding-menu').animate(
+            {
+                'left': '-225px',
+                'position': 'absolute'
+            }
+        );
+
+        menu.expanded = false;
+
+    } else if (!menu.expanded && menu.overlay) {
+
+        $('#sliding-menu').animate(
+            {
+                'left': '0px',
+                'position': 'absolute'
+            }
+        );
+
+        menu.expanded = true;
+        
     }
 
 }
