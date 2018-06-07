@@ -5,7 +5,7 @@ const childItems = {
 const parentItems = {
     name: null,
     icon: null,
-    childItems: [childItems]
+    childItems: []
 
 };
 
@@ -19,7 +19,7 @@ const user = {
 const menu = {
 	expanded: true,
 	overlay: false,
-	tabsList: null,
+	tabsList: [],
 	currentTab: null
 };
 
@@ -27,7 +27,7 @@ const menu = {
 const tab = {
     name: null, 
     icon: null,
-    listOfItems: [items],
+    listOfItems: [],
     activeParentItem: null
 };
  
