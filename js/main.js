@@ -86,25 +86,25 @@ function createData(menu)
 
     var itemIcons = [
         [
+            'fas fa-hospital',
             '',
-            '',
-            '',
-            '',
-            '',
+            'fas fa-chart-line',
+            'fas fa-bars',
+            'fas fa-box-open',
         ],
         [
-            '',
-            '',
-            '',
-            '',
-            '',
-            '',
+            'fas fa-user',
+            'fas fa-user',
+            'fas fa-exchange-alt',
+            'fas fa-expand-arrows-alt',
+            'fab fa-pied-pipe',
+            'far fa-clock',
         ],
         [
-            '',
-            '',
-            '',
-            '',
+            'fas fa-file',
+            'far fa-hospital',
+            'far fa-hospital',
+            'far fa-hospital',
         ],
     ];
 
