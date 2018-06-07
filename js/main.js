@@ -30,4 +30,28 @@ const tab = {
     listOfItems: [],
     activeParentItem: null
 };
- 
+
+function populateTabs(menu)
+{
+
+}
+
+function populateParentItems(tabs)
+{
+
+}
+
+function populateChildItems(parentItem)
+{
+
+}
+
+function showTab(tab)
+{
+
+}
+
+function showParent(tab)
+{
+    
+}
