@@ -31,6 +31,8 @@ const tabTemplate = {
     activeParentItem: null
 };
 
+var menu;
+
 function createData(menu)
 {
     menu = Object.assign(
@@ -208,6 +210,28 @@ function selectTab(tabName){
     console.log(tabName)
 }
 
+function menuToggle(menu){
+    
+    if (menu.expanded && !menu.overlay) {
+
+        $('#sliding-menu').animate(
+            {
+                'margin-left': '-225px'
+            }
+        );
+
+    } else if (!menu.expanded && !menu.overlay) {
+
+        $('#sliding-menu').animate(
+            {
+                'margin-left': '0px'
+            }
+        );
+
+    }
+
+}
+
 function initialiseTabListeners(menu) {
 	for (var i = 0; i < menu.tabsList.length; i++) {
         let j = i;
@@ -215,13 +239,18 @@ function initialiseTabListeners(menu) {
 	}
 }
 
+function initialiseCaratButtonListener() {
+    $("#caratButton").click((e) => {menuToggle(menu)});
+}
+
 $(document).ready(function(){
-    var menu;
+    
     menu = createData(menu);
     populateTabs(menu);
     populateParentItems(menu);
     populateChildItems(menu)
     initialiseTabListeners(menu);
+    initialiseCaratButtonListener();
     console.log(menu);
 
 });
