@@ -204,6 +204,28 @@ function selectTab(tabName){
     console.log(tabName)
 }
 
+function menuToggle(menu){
+    
+    if (menu.expanded && !menu.overlay) {
+
+        $('#sliding-menu').animate(
+            {
+                'margin-left': '-225px'
+            }
+        );
+
+    } else if (!menu.expanded && !menu.overlay) {
+
+        $('#sliding-menu').animate(
+            {
+                'margin-left': '0px'
+            }
+        );
+
+    }
+
+}
+
 function initialiseTabListeners(menu) {
 	for (var i = 0; i < menu.tabsList.length; i++) {
         let j = i;
